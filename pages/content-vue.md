@@ -1,0 +1,119 @@
+## <logos-vue v-motion :initial="{opacity: 0, y: 100}" :enter="{opacity: 1, y: 0, scale: 1}" class="rotate"/> 主要技术栈Vue升级
+
+
+<br /> 
+
+> 随着现代主流框架 `react`, `vue` 不断的更新迭代,  函数式编程逐渐在前端工程流行开来，从2022年开始`react 16`版本中摒弃了class开发模式， 开始倡导使用`hooks`编写代码，而后Vue 2.7 版本中，也提出了Composition API概念。
+
+<div class="flex align-center justify-center">
+  <img src="/assets/images/composable-api.jpg" class="w-70%" alt="composable-api" />
+</div>
+
+
+
+--- 
+
+### Composition API
+
+组合式 API (Composition API) 是一系列 API 的集合，使我们可以使用函数而不是声明选项的方式书写 Vue 组件。它是一个概括性的术语，涵盖了以下方面的 API：
+
+1. 响应式 API：例如 ref() 和 reactive()，使我们可以直接创建响应式状态、计算属性和侦听器。
+2. 生命周期钩子：例如 onMounted() 和 onUnmounted()，使我们可以在组件各个生命周期阶段添加逻辑。
+3. 依赖注入：例如 provide() 和 inject()，使我们可以在使用响应式 API 时，利用 Vue 的依赖注入系统。
+
+---
+
+### 对比原有options-api写法的好处
+
+组合式函数写法，对比原有的Options-api 好处有如下：
+
+1. 函数式写法天生对typescript支持非常友好，而options-api 对象写法typescript支持不友好
+2. 功能拆分方便，利于逻辑代码重用，对大型项目开发优化（以前vue大型项目不被看好的原因）
+3. 代码可维护行更好，按功能划分
+4. 更小的生产包体积
+5. 基于Vue细粒度的响应式系统更灵活
+
+搭配 `<script setup>` 使用组合式 API 比等价情况下的选项式 API 更高效，对代码压缩也更友好。这是由于 `<script setup>` 形式书写的组件模板被编译为了一个内联函数，和`<script setup>` 中的代码位于同一作用域。不像选项式 API 需要依赖 this 上下文对象访问属性，被编译的模板可以直接访问 `<script setup>` 中定义的变量，无需从实例中代理。这对代码压缩更友好，因为本地变量的名字可以被压缩，但对象的属性名则不能
+
+<div class="flex flex-row">
+  <div class="flex-1 mr-2">
+  
+   ```vue
+   <script>
+   export default {
+    data() {
+      return {
+       baz: '',
+       qux: '',
+      }
+    },
+    computed: {
+      doubleFoo() {
+        return this.foo * 2
+      },
+      doubleQux() {
+        return this.qux * 2
+      }
+    },
+    methods: {
+      fetchQux() {
+        this.qux = 'aaa'
+      },
+      fetchBaz() {
+        this.baz = 'bbb'
+      }
+    },
+    mounted() {
+      this.fetchQux()
+      this.fetchBaz()
+    }
+   }
+   </script>
+   ```
+
+  </div>
+  <div class="flex-1">
+  
+  ````md magic-move {lines: true}
+  ```ts
+    // useQux.ts
+    import {ref, computed, onMounted} from 'vue'
+    export default function () {
+      const qux = ref('')
+      const doubleQux = computed(() => qux.value * 2)
+      const fetchQux = () => {
+        qux.value = 'aaa'
+        ...
+      }
+      onMounted(fetchQux)
+      return {qux, doubleQux}}
+    }
+  ```
+
+  ```ts
+    // useBaz.ts
+    import {ref, computed, onMounted} from 'vue'
+    export default function () {
+      const baz = ref('')
+      const doubleBaz = computed(() => baz.value * 2)
+      const fetchBaz = () => {
+        baz.value = 'aaa'
+        ...
+      }
+      onMounted(fetchBaz)
+      return {baz, doubleBaz}}
+    }
+   ```
+
+  ```vue
+  <script setup>
+  import useQux from './useQux.ts'
+  import useBaz from './useBaz.ts'
+  const {qux, doubleQux} = useQux()
+  const {baz, doubleBaz} = useBaz()
+  </script>
+  ```
+  ````
+
+  </div>
+</div>
