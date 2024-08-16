@@ -1,6 +1,6 @@
 node_modules
 .DS_Store
-dist
+# dist
 *.local
 .vite-inspect
 .remote-assets
