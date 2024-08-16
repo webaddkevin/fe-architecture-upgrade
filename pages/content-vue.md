@@ -72,48 +72,58 @@
    ```
 
   </div>
-  <div class="flex-1">
+  <div class="flex-1 flex-col">
   
-  ````md magic-move {lines: true}
-  ```ts
-    // useQux.ts
-    import {ref, computed, onMounted} from 'vue'
-    export default function () {
-      const qux = ref('')
-      const doubleQux = computed(() => qux.value * 2)
-      const fetchQux = () => {
-        qux.value = 'aaa'
-        ...
-      }
-      onMounted(fetchQux)
-      return {qux, doubleQux}}
-    }
-  ```
+  <div class="mb-2">
 
   ```ts
-    // useBaz.ts
-    import {ref, computed, onMounted} from 'vue'
-    export default function () {
-      const baz = ref('')
-      const doubleBaz = computed(() => baz.value * 2)
-      const fetchBaz = () => {
-        baz.value = 'aaa'
-        ...
-      }
-      onMounted(fetchBaz)
-      return {baz, doubleBaz}}
+  // useQux.ts
+  import {ref, computed, onMounted} from 'vue'
+  export default function () {
+    const qux = ref('')
+    const doubleQux = computed(() => qux.value * 2)
+    const fetchQux = () => {
+      qux.value = 'aaa'
+      ...
     }
-   ```
+    onMounted(fetchQux)
+    return {qux, doubleQux}
+  }
+  ```
+
+  </div>
+
+  <div class="mb-2">
+
+  ```ts
+  // useBaz.ts
+  import {ref, computed, onMounted} from 'vue'
+  export default function () {
+    const baz = ref('')
+    const doubleBaz = computed(() => baz.value * 2)
+    const fetchBaz = () => {
+      baz.value = 'aaa'
+      ...
+    }
+    onMounted(fetchBaz)
+    return {baz, doubleBaz}
+  }
+  ```
+
+  </div>
+
+  <div>
 
   ```vue
   <script setup>
-  import useQux from './useQux.ts'
-  import useBaz from './useBaz.ts'
+  // Vue组件中
+  import useQux from './composables/useQux.ts'
+  import useBaz from './composables/useBaz.ts'
   const {qux, doubleQux} = useQux()
   const {baz, doubleBaz} = useBaz()
   </script>
   ```
-  ````
 
+  </div>
   </div>
 </div>
