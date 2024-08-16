@@ -4,6 +4,7 @@
   <img class="border-rounded" src="/assets/images/webpack-vite.png" />
 </div>
 
+
 ---
 
 ### webpack打包的问题
@@ -89,13 +90,19 @@ webpack项目中，每次修改文件，都会对整个项目重新进行打包�
 <div class="flex flex-row text-center">
 
 <div class="flex flex-col">
-  <img src="/assets/images/webpack-run.png" class="border-rounded my-2" />
-  <p> webpack run dev 50s +</p>
+  <img src="/assets/images/webpack-run.png" class="border-rounded my-2" /> 
+  <img src="/assets/images/webpack-build.png" class="border-rounded my-2" /> 
+  <p> webpack run dev 
+  <span v-mark.circle.red="1">50s +</span>, 
+  hmr <span v-mark.circle.red="1">7s +</span>, 
+  build <span v-mark.circle.red="1">216s +</span>
+    </p>
 </div>
 
 <div class="flex flex-col ml-2">
   <img src="/assets/images/vite-run.png" class="border-rounded my-2"/>
-  <p> vite run dev 1.5s +</p>
+  <img src="/assets/images/vite-build.png" class="border-rounded my-2"/>
+  <p> vite run dev <span v-mark.circle.green="2">1.5s +</span>, hmr <span v-mark.circle.green="2">1.5s +</span>, hmr <span v-mark.circle.green="2">46s +</span></p>
 </div>
 
 </div>
@@ -109,5 +116,3 @@ webpack项目中，每次修改文件，都会对整个项目重新进行打包�
 1. vite 目前开发环境和生产环境使用了两套打包方案，可能会存在出入.目前官方已经在做技术升级，引入`rust`对开发和生产打包工具统一，相信在不久将来可以解决.
 
 2. 改造项目成本很大，改动点非常多，回归困难，这个目前还没有很好的解决办法，所以改动后上线需要充分测试，对复杂业务逻辑的项目需非常谨慎。
-
----

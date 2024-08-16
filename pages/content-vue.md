@@ -127,3 +127,66 @@
   </div>
   </div>
 </div>
+
+---
+
+### <carbon-warning-alt class="text-red-500" />开发注意点
+
+1. 组合式 API 的函数式写法，不能使用 `this` 关键字，因为函数式写法没有 `this` 上下文对象，所以不能直接访问组件实例上的属性和方法。可以通过getCurrentInstance()获取当前组件实例，然后通过实例上的属性和方法访问。
+
+```vue
+<script setup>
+import {getCurrentInstance} from 'vue'
+// proxy相当于this-当前组件实例
+const {proxy} = getCurrentInstance()
+</script>
+```
+
+2. 不能直接解构`props`或者响应式对象, 否则会失去响应式，需要通过`toRef`或者`toRefs`方法进行解构
+
+```vue
+<script setup>
+const props = defineProps({
+  info: {name: String, age: Number}
+})
+const {name} = props.info // name不是响应式
+const {name} = toRefs(props.info) // name是响应式
+</script
+```
+
+3. ref 和 reactive 的区别
+
+```vue
+<script setup>
+ import {ref, reactive} from 'vue'
+ const foo = ref(1)
+ console.log(foo.value) // 取值需要.value
+ const bar = reactive({name: 'bar'})
+ console.log(bar.name) // 取值不需要.value
+
+ watch(foo, () => { // 监听直接监听
+   console.log('foo changed')
+ })
+
+ watch(() => bar.name, () => { // 监听值需要函数
+  console.log('name changed')
+ })
+</script>
+```
+
+4. 使用编译宏定义props, emits，以及组件变量导出。2.7+版本支持 defineProps, defineEmits, defineExpose, withDefaults, 实例上删除了props属性
+
+```vue
+<script setup>
+// 支持类型推断
+const props = defineProps({
+  name: {type: String, default: ''}
+})
+//支持类型推断
+const emit = defineEmits(['update'])
+const a = ref(1)
+defineExpose({
+  a // 暴露给父组件使用
+})
+</script>
+```
