@@ -38,7 +38,6 @@ hide: false
 ---
 
 ---
-transition: fade-out
 layout: default
 src: ./pages/content.md
 class: overflow-auto

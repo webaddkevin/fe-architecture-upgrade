@@ -33,7 +33,10 @@
 4. 更小的生产包体积
 5. 基于Vue细粒度的响应式系统更灵活
 
+
 搭配 `<script setup>` 使用组合式 API 比等价情况下的选项式 API 更高效，对代码压缩也更友好。这是由于 `<script setup>` 形式书写的组件模板被编译为了一个内联函数，和`<script setup>` 中的代码位于同一作用域。不像选项式 API 需要依赖 this 上下文对象访问属性，被编译的模板可以直接访问 `<script setup>` 中定义的变量，无需从实例中代理。这对代码压缩更友好，因为本地变量的名字可以被压缩，但对象的属性名则不能
+
+---
 
 <div class="flex flex-row">
   <div class="flex-1 mr-2">
@@ -154,6 +157,8 @@ const {name} = toRefs(props.info) // name是响应式
 </script
 ```
 
+--- 
+
 3. ref 和 reactive 的区别
 
 ```vue
@@ -173,6 +178,8 @@ const {name} = toRefs(props.info) // name是响应式
  })
 </script>
 ```
+
+---
 
 4. 使用编译宏定义props, emits，以及组件变量导出。2.7+版本支持 defineProps, defineEmits, defineExpose, withDefaults, 实例上删除了props属性
 

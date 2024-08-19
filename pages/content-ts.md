@@ -11,6 +11,8 @@
 3. 模块化支持，TypeScript 支持 ES6 模块语法，使得代码组织更加清晰和模块化，易于理解和维护。
 4. 大型项目管理方便，在多人协作中TypeScript 可以帮助更好地管理代码结构，减少变量名冲突等问题，使团队协作更加高效。
 
+--- 
+
 ```vue {all|8-18|2,20-23|all} twoslash
 <template>
   <div>{{useInfo.score}}</div>
@@ -26,14 +28,7 @@ const useInfo = reactive<User>({
   height: 170,
   weight: 70
 })
-
-function changeName(name: string) {
-  useInfo.name = "Jane";
-}
-
 changeName(11);
-changeName('LiLei', 2);
-
 useInfo.weight = '修改一下'
 </script>
 
