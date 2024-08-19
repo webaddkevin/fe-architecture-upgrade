@@ -5,10 +5,10 @@ theme: seriph
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: 前端架构升级
+title: 前端工程架构升级
 titleTemplate: "%s"
 info: |
-  ## 前端架构升级
+  ## 前端工程架构升级
   代码规范统一，打包工具更换，技术栈Vue升级，css引擎升级，typescript使用，辅助开发工具使用等
 author: 蒋春富
 # apply unocss classes to the current slide
@@ -23,7 +23,7 @@ mdc: true
 hideInToc: true
 ---
 
-# 前端架构升级
+# 前端工程架构升级
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -88,7 +88,7 @@ class: text-center bg-[url(https://cover.sli.dev)]
 
 <style>
   h1 {
-    @apply: text-6xl;
+    @apply: text-6xl color-white;
   }
 
 </style>
