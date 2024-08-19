@@ -102,7 +102,7 @@ webpack项目中，每次修改文件，都会对整个项目重新进行打包�
 <div class="flex flex-col ml-2">
   <img src="/assets/images/vite-run.png" class="border-rounded my-2"/>
   <img src="/assets/images/vite-build.png" class="border-rounded my-2"/>
-  <p> vite run dev <span v-mark.circle.green="2">1.5s +</span>, hmr <span v-mark.circle.green="2">1.5s +</span>, hmr <span v-mark.circle.green="2">46s +</span></p>
+  <p> vite run dev <span v-mark.circle.green="2">1.5s +</span>, hmr <span v-mark.circle.green="2">1.5s +</span>, build <span v-mark.circle.green="2">46s +</span></p>
 </div>
 
 </div>
