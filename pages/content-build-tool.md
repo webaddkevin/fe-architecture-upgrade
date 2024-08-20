@@ -114,7 +114,7 @@ vite也正是利用了`ES module`这个特性，使用`vite`运行项目时，�
 <div class="flex flex-col ml-2  items-center">
   <img src="/assets/images/vite-run.png" class="border-rounded my-2 w-60%"/>
   <img src="/assets/images/vite-build.png" class="border-rounded my-2 w-60%"/>
-  <p> vite run dev <span v-mark.circle.green="2">1.5s +</span>, hmr <span v-mark.circle.green="2">1.5s +</span>, hmr <span v-mark.circle.green="2">46s +</span></p>
+  <p> vite run dev <span v-mark.circle.green="2">1.5s +</span>, hmr <span v-mark.circle.green="2">1.5s +</span>, build <span v-mark.circle.green="2">46s +</span></p>
 </div>
 
 </div>
