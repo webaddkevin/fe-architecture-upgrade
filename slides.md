@@ -38,7 +38,7 @@ hide: false
 ---
 
 ---
-transition: slide-right
+transition: slide-up
 layout: default
 src: ./pages/content.md
 class: overflow-auto
@@ -80,8 +80,14 @@ class: overflow-auto
 ---
 
 ---
+transition: fade
+src: ./pages/future-plan.md
+class: overflow-auto
+---
+
+---
 layout: center
-class: text-center bg-[url(/assets/images/wukong.jpg)] bg-cover 
+class: text-center bg-[url(/assets/images/wukong.jpg)] bg-cover
 ---
 
 # 谢谢观看
