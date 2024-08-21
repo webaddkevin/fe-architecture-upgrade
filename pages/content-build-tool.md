@@ -70,13 +70,13 @@ webpack项目中，每次修改文件，都会对整个项目重新进行打包�
 
 ---
 
-### 工具替换改动点总结
+### 改动点总结
 
-1. `vite`生态库相关插件替换`vite`,`vite-plugin-html`, `@vitejs/plugin-vue2`, `@vitejs/plugin-vue2-jsx`等'
+1. `vite`生态库相关插件替换`vite`,`vite-plugin-html`, `@vitejs/plugin-vue2`, `@vitejs/plugin-vue2-jsx`等
 2. 原有内部`webpack`项目插件替换，编写新的`vite`插件替换，`@kkl/vite-plugin-mock`, `@kkl/vite-plugin-create-routes`
 3. 业务中大量`require`代码改为`import`方式, 部分业务逻辑不兼容处理
 4. `webpack`专属环境api替换，`require.context`替换为`import.meta.glob`等
-5. 静态资源路径处理, img, background-image 路径等
+5. 静态资源路径处理, img, background-image 路径修改等
 6. 不支持的三方包处理, 如 `antv-g2`等
 
 
@@ -111,6 +111,6 @@ webpack项目中，每次修改文件，都会对整个项目重新进行打包�
 
 ### 不足点
 
-1. `vite` 目前开发环境和生产环境使用了两套打包方案，可能会存在出入.目前官方已经在做技术升级，引入`rust`对开发和生产打包工具统一, 等待官方后续更新。
+1. `vite` 目前开发环境和生产环境使用了两套打包方案，可能会存在出入.目前官方已经在做技术升级，使用`rust`对开发和生产打包工具统一, 等待官方后续更新。
 
 2. 改造项目成本很大，改动点非常多，回归困难，这个目前还没有很好的解决办法，所以改动后上线需要充分测试，对复杂业务逻辑的项目需非常谨慎。

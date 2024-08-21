@@ -2,7 +2,7 @@
 
 <br />
 
-> 由于打包工具`vite`天生默认支持`typescript`， `vue`升级成2.7+后 函数式编程对`typescript`支持增强，以及`vscode vue`工具`Volar`类型检查`template`支持，使用`typescript`可以显著提升了项目开发体验，提升项目可维护性，所以目前所有前端项目改用使用`typescript`开发。具体好处如下：
+> 由于打包工具`vite`天生默认支持`typescript`， `vue`升级成2.7+后 函数式编程对`typescript`支持增强，以及`vscode vue`工具`Volar`类型检查`template`支持，使用`typescript`可以显著提升了项目开发体验，提升项目可维护性，所以目前所有前端项目改用使用`typescript`开发。
 
 <br />
 
