@@ -36,6 +36,7 @@ webpack项目中，每次修改文件，都会对整个项目重新进行打包�
 
 <img src="/assets/images/vite.png" class="border-rounded w-70% my-2"/>
 
+在`<script type="module">`中，浏览器遇到内部的`import`引用时，会自动发起`http`请求，去加载对应的模块。 `vite`也正是利用了`ES module`这个特性，使用`vite`运行项目时，首先会用esbuild进行预构建，将所有模块转换为`es module`，不需要对我们整个项目进行编译打包，而是在浏览器需要加载某个模块时，拦截浏览器发出的请求，根据请求进行按需编译，然后返回给浏览器。
 
 - 优势
 

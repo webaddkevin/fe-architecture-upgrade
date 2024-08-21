@@ -1,4 +1,4 @@
-## <logos-vue v-motion :initial="{opacity: 0, y: 100}" :enter="{opacity: 1, y: 0, scale: 1}" class="rotate"/> 主要技术栈Vue升级
+## <logos-vue v-motion :initial="{opacity: 0, y: 100}" :enter="{opacity: 1, y: 0, scale: 1}"/> 主要技术栈Vue升级
 
 
 <br /> 
@@ -28,8 +28,8 @@
 组合式函数写法，对比原有的Options-api 好处有如下：
 
 1. 函数式写法天生对typescript支持非常友好，而options-api 对象写法typescript支持不友好
-2. 功能拆分方便，利于逻辑代码重用，对大型项目开发优化（以前vue大型项目不被看好的原因）
-3. 代码可维护行更好，按功能划分
+2. 功能拆分方便，利于逻辑代码重用，有利于大型项目开发和维护（以前vue大型项目不被看好的原因）
+3. 代码可维护性更好，按功能划分
 4. 更小的生产包体积
 5. 基于Vue细粒度的响应式系统更灵活
 
@@ -190,3 +190,11 @@ defineExpose({
 })
 </script>
 ```
+
+---
+
+### 现有问题
+
+1. composable-api 语法 相对原有的语法变化太大, 全新的api有一定使用学习成本
+2. 去年年底开始官方Vue 2 终止支持(EOL)，主要迭代升级vue3，但是vue3底层API 对浏览器兼容性要求较高，我们目前使用的vue2.7.16(vue2最后一个版本-vue3过渡版)，框架后续能力不足。
+3. 由于官方社区主推vue3, 相应的社区很多插件库都转向vue3，而vue3语法无法很好向下兼容会出现社区能力断档

@@ -123,7 +123,6 @@ class: overflow-auto
     "source.fixAll.stylelint": "explicit"
   },
   "editor.formatOnSave": true,
-  "javascript.format.enable": false,  
   "cSpell.words": ["goproxy", "unocss", "shenyu"],
   "vue.server.maxOldSpaceSize": 4000
 }
