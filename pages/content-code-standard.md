@@ -89,7 +89,7 @@ class: overflow-auto
 
 ### 统一编辑器配置统一插件，辅助编程
 
-项目加入编辑器层面的统一配置settings.json和统一插件extensions.json
+项目加入编辑器层面的统一配置和统一插件
 
 ```json
 // .vscode/recommendations.json
@@ -100,10 +100,11 @@ class: overflow-auto
     "stylelint.vscode-stylelint",
     "dbaeumer.vscode-eslint",
     "antfu.unocss",
-    "alibaba-cloud.tongyi-lingma"
   ]
 }
 ```
+
+---
 
 ```json
 // .vscode/settings.json
@@ -123,8 +124,6 @@ class: overflow-auto
     "source.fixAll.stylelint": "explicit"
   },
   "editor.formatOnSave": true,
-  "cSpell.words": ["goproxy", "unocss", "shenyu"],
-  "vue.server.maxOldSpaceSize": 4000
 }
 ```
 ---
@@ -137,39 +136,46 @@ class: overflow-auto
 
 > 从代码基础格式，主要技术栈Vue书写格式和校验，css书写格式和校验，提交内容规范出发，将相关库封装成标准依赖包制定成统一标准集合包 `@kkl/company-standard`并应用于所有Vue2相关前端工程项目。
 
-<br />
  
-1. 代码基础格式统一
+1. 代码基础格式统一(@kkl/standard-prettier)
 
-根据`prettier`库配置规则，对项目基本格式（空格，tab宽度，代码最大行宽）配置统一的配置文件，编写`@kkl/standard-prettier`约束，保存代码自动格式化矫正
+<!-- 根据`prettier`库配置规则，对项目基本格式（空格，tab宽度，代码最大行宽）配置统一的配置文件，编写`@kkl/standard-prettier`约束，保存代码自动格式化矫正 -->
 
-<div class="w-full flex align-center h-80 mb-5">
+<div class="w-full flex align-center h-80">
   <img border="rounded" src="/assets/images/prettier.gif" alt="">
 </div>
 
-2. `html`, `javascript`, `typescript`, `vue` 书写格式统一和语法错误提示
+---
 
-根据`eslint`库和`vscode`-`eslint`的插件，参考腾讯alloyTeam的`eslint`规范编写统一的项目配置`eslint-config-company-vue2`, 校验代码书写规范和正确性，并提示代码错误，保存矫正部分代码
+2. `html`, `javascript`, `typescript`, `vue` 书写格式统一和语法错误提示(`eslint-config-company-vue2`)
 
-<div class="w-full flex align-center h-80 mb-5">
+<!-- 根据`eslint`库和`vscode`-`eslint`的插件，参考腾讯alloyTeam的`eslint`规范编写统一的项目配置`eslint-config-company-vue2`, 校验代码书写规范和正确性，并提示代码错误，保存矫正部分代码 -->
+
+<div class="w-full flex align-center h-80">
   <img border="rounded" src="/assets/images/eslint.gif" alt="">
 </div>
 
-3. css代码书写格式统一和校验
+---
 
-根据`stylelint`库，对css书写制定统一的规范库 `@kkl/standard-stylelint-less`/`@kkl/stanard-stylelint-scss`
+3. css代码书写格式统一和校验(`@kkl/standard-stylelint-less`)
 
-<div class="w-full flex align-center h-80 mb-5">
+<!-- 根据`stylelint`库，对css书写制定统一的规范库 `@kkl/standard-stylelint-less`/`@kkl/stanard-stylelint-scss` -->
+
+<div class="w-full flex align-center h-80">
   <img border="rounded" src="/assets/images/stylelint.gif" alt="">
 </div>
 
-4. 提交内容规范
+---
 
-根据`commitlint` 和 `@commitlint/config-angular` 对提交内容进行规范统一，根据 `husky`对git commit 时进行校验
+4. 提交内容规范(`husky` & `commitlint`)
 
-<div class="w-full flex align-center h-80 mb-5">
+<!-- 根据`commitlint` 和 `@commitlint/config-angular` 对提交内容进行规范统一，根据 `husky`对git commit 时进行校验 -->
+
+<div class="w-full flex align-center h-80">
   <img border="rounded" src="/assets/images/commitlint.gif" alt="">
 </div>
+
+--- 
 
 5. 版本管理和changelog
 
@@ -178,39 +184,3 @@ class: overflow-auto
 - 简化维护: 所有工具/组件都存放在一个仓库中，便于统一管理和版本控制，关联包升级自动升级依赖包版本
 - 共享资源：不同工具/组件之间可以更容易的共享代码和资源 
 - 协作方便：同一仓库协作开发，提高开发效率
-
-```txt
-kkl-utils/
-├── .changesets/
-├── .husky/
-├── .vscode/
-├── packages/
-│   ├── shenyu-api/
-│   │   ├── src/
-│   │   │   └── index.ts
-│   │   ├── test/
-│   │   │   └── index.test.ts
-│   │   ├── package.json
-│   │   ├── CHANGELOG.md
-│   │   ├── README.md
-│   │   └── tsconfig.json
-│   ├── get-api-url/
-│   ├── make-pwd-safety/
-│   └── common-url/
-├── .eslintignore
-├── .eslintrc.js
-├── .gitignore
-├── .prettierignore
-├── .prettierrc.js
-├── jest.config.ts
-├── tsconfig.json
-├── .npmrc
-├── .prettierrc
-├── pnpm-workspace.yaml
-├── package.json
-└── README.md
-```
-
-
-
----
