@@ -3,7 +3,7 @@
 
 <br /> 
 
-> 随着现代主流框架 `react`, `vue` 不断的更新迭代,  函数式编程逐渐在前端工程流行开来，从2022年开始`react 16`版本中摒弃了class开发模式， 开始倡导使用`hooks`编写代码，而后Vue 2.7 版本中，也提出了Composition API概念。
+> 随着现代主流框架 `react`, `vue` 不断的更新迭代,  函数式编程逐渐在前端工程流行开来，`react 16`版本开始摒弃了class开发模式， 开始倡导使用`hooks`编写代码，而后Vue 2.7 版本中，也提出了Composition API概念。
 
 <div class="flex align-center justify-center">
   <img src="/assets/images/composable-api.jpg" class="w-70%" alt="composable-api" />
